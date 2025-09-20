@@ -1,0 +1,91 @@
+# https://github.com/geerlingguy/dotfiles/blob/master/.osx
+
+# Backup
+if [ ! -f ~/defaults.backup ]; then
+    defaults read > ~/defaults.backup
+fi
+
+# MacOS config
+defaults write NSGlobalDomain InitialKeyRepeat -int 25
+defaults write NSGlobalDomain KeyRepeat -int 2
+defaults write NSGlobalDomain AppleShowScrollBars Automatic
+defaults write NSGlobalDomain AppleInterfaceStyleSwitchesAutomatically -bool true
+
+# Finder
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
+defaults write com.apple.finder ShowHardDrivesOnDesktop -bool false
+defaults write com.apple.finder ShowMountedServersOnDesktop -bool true
+defaults write com.apple.finder ShowPathbar -bool true
+defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
+defaults write com.apple.finder ShowPreviewPane -bool true
+defaults write com.apple.finder ShowSidebar -bool true
+defaults write com.apple.finder ShowStatusBar -bool false
+defaults write com.apple.finder FXRemoveOldTrashItems -bool true
+defaults write com.apple.finder _FXSortFoldersFirst -bool true
+
+# When performing a search, search the current folder by default
+defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
+
+# Use column view in all Finder windows by default
+# Four-letter codes for the other view modes: `icnv`, `Nlsv`, `clmv`, `Flwv`
+defaults write com.apple.finder FXPreferredViewStyle -string "clmv"
+
+defaults write com.apple.finder NewWindowTarget -string "PfHo"
+defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/"
+
+# Avoid creating .DS_Store files on network volumes
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+
+# Finder: allow text selection in Quick Look
+#defaults write com.apple.finder QLEnableTextSelection -bool true
+
+# Display full POSIX path as Finder window title
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+defaults delete com.apple.finder _FXShowPosixPathInTitle
+
+# Screenshots
+defaults write com.apple.screencapture disable-shadow -bool true
+defaults delete com.apple.screencapture disable-shadow
+
+# Show the ~/Library folder
+#chflags nohidden ~/Library
+
+killall Finder
+
+
+# Hot corners
+# Possible values:
+#  0: no-op
+#  2: Mission Control
+#  3: Show application windows
+#  4: Desktop
+#  5: Start screen saver
+#  6: Disable screen saver
+#  7: Dashboard
+# 10: Put display to sleep
+# 11: Launchpad
+# 12: Notification Center
+
+# Bottom right screen corner → Show application windows
+defaults write com.apple.dock wvous-br-corner -int 3
+defaults write com.apple.dock wvous-br-modifier -int 0
+# Top right screen corner → Mission Control
+defaults write com.apple.dock wvous-tr-corner -int 2
+defaults write com.apple.dock wvous-tr-modifier -int 0
+# Bottom left screen corner → Put display to sleep
+defaults write com.apple.dock wvous-bl-corner -int 10
+defaults write com.apple.dock wvous-bl-modifier -int 0
+# Top left screen corner → no-op
+defaults write com.apple.dock wvous-tl-corner -int 0
+defaults write com.apple.dock wvous-tl-modifier -int 0
+
+# Dock
+defaults write com.apple.dock tilesize -int 47
+defaults write com.apple.dock largesize -int 109
+defaults write com.apple.dock autohide -bool true
+
+killall Dock
+
+
+
