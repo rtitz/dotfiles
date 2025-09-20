@@ -111,6 +111,9 @@ mas install 1569813296 1295203466 1451685025 409203825 669289700
   - Share -> File share (Dateifreigabe): Aktiviren
 - Security & Privacy
   - Privacy
-    - Full Disk Access -> Enable Terminal.app
+    - Full Disk Access -> Add & Enable Terminal.app
+    - Bedienungshilfen -> Add & Enable 1Password
+- Network
+  - Firewall: Enable
 
 **[BACK](../../README.md)**
