@@ -28,6 +28,7 @@ git clone git@github.com:xsalazar/emoji-kitchen.git
 git clone git@github.com:rtitz/go-notify.git
 git clone git@github.com:rtitz/go-r53-dyndns.git
 git clone https://github.com/geerlingguy/mac-dev-playbook.git
+git clone git@github.com:rtitz/mac-ramdisk-creator.git
 git clone git@github.com:rtitz/network.git
 git clone git@github.com:rtitz/photo-copy.git
 git clone git@github.com:rtitz/private.git
