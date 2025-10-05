@@ -115,6 +115,7 @@ mas install 1569813296 1295203466 1451685025 409203825 669289700
     - Bedienungshilfen -> Add & Enable 1Password
 - Network
   - Firewall: Enable
+- Keyboard -> Keyboard navigation: Enable
 
 ## Open Shell scripts by default with Terminal
 - Right click on .sh file
