@@ -25,6 +25,7 @@ git clone git@github.com:rtitz/aws-s3-backup.git
 git clone git@github.com:rtitz/aws-s3-backup-cdk.git
 git clone git@github.com:soypat/cyw43439.git
 git clone git@github.com:xsalazar/emoji-kitchen.git
+git clone https://github.com/MariaLetta/free-gophers-pack.git
 git clone git@github.com:rtitz/go-notify.git
 git clone git@github.com:rtitz/go-r53-dyndns.git
 git clone https://github.com/geerlingguy/mac-dev-playbook.git
