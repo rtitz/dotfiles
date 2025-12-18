@@ -57,7 +57,7 @@ sudo tmutil addexclusion -p /Users/rene/Library/Containers/com.docker.docker
 ```zsh
 #/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" # Only needed if not installed via pkg file
 
-brew install mas htop nmap screen watch pwgen tree stress-ng awscli aws-cdk ansible 
+brew install mas htop nmap screen watch pwgen tree stress-ng exiftool awscli aws-cdk ansible 
 brew install --cask libreoffice
 brew install --cask libreoffice-language-pack
 brew install 1password-cli # AFTER 1PASSWORD IS INSTALLED NOT BEFORE !!!
