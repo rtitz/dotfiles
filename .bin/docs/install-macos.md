@@ -66,7 +66,7 @@ brew cleanup --prune=all #; go clean -cache # go clean only needed if Go is inst
 
 ## Upgrade all
 ```zsh
-brew update && brew upgrade && brew upgrade --cask && brew autoremove && brew cleanup; mas upgrade; softwareupdate -l
+brew update && brew upgrade && brew upgrade --cask && brew autoremove && brew cleanup; softwareupdate -l
 ```
 
 ## Applictications (Download DMG or PKG file from the Internet)
@@ -87,17 +87,6 @@ brew update && brew upgrade && brew upgrade --cask && brew autoremove && brew cl
   * Windows App
   * Numbers
 
-### Alternative for AppStore Applications via 'mas' command in terminal
-  * brew install mas needed to install the mas command!
-```zsh
-# 1569813296  1Password for Safari  (8.10.82)
-# 1295203466  Windows App           (11.2.0)
-# 1451685025  WireGuard             (1.0.16)
-# 409203825   Numbers               (14.4)
-# 669289700   Sweet Home 3D         (7.5.350)
-
-mas install 1569813296 1295203466 1451685025 409203825 669289700
-```
 
 ## Install Go
 
