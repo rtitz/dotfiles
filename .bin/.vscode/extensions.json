@@ -1,0 +1,11 @@
+{
+    "recommendations": [
+        "redhat.vscode-yaml",
+        "yzhang.markdown-all-in-one",
+        "janisdd.vscode-edit-csv",
+        //"mechatroner.rainbow-csv",
+        //"DavidAnson.vscode-markdownlint",
+        "streetsidesoftware.code-spell-checker",
+        "streetsidesoftware.code-spell-checker-german"
+    ]
+}

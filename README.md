@@ -2,6 +2,14 @@
 
 This is a tool to backup and restore macOS configuration in Git.
 
+# Table of Contents
+- [dotfiles - macOS configuration](#dotfiles---macos-configuration)
+- [Table of Contents](#table-of-contents)
+  - [Setup](#setup)
+  - [Add files to repo](#add-files-to-repo)
+  - [Pull current configuration on other machines](#pull-current-configuration-on-other-machines)
+  - [Documentations](#documentations)
+
 ## Setup
 ```zsh
 /Volumes/external-0/0_Backup/Mac/restore-ssh-keys.sh # SSD external-0 must be connected. This restores SSH-Keys
@@ -10,7 +18,7 @@ alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 git clone --bare git@github.com:rtitz/dotfiles-rene.git $HOME/.dotfiles
 dotfiles config --local status.showUntrackedFiles no
 dotfiles config --local push.autoSetupRemote true
-dotfiles checkout  # To overwrite local files with the files in Git use: dotfiles checkout -f 
+dotfiles checkout  # To overwrite local files with the files in Git use: dotfiles checkout -f
 ```
 
 ## Add files to repo

@@ -57,7 +57,7 @@ sudo tmutil addexclusion -p /Users/rene/Library/Containers/com.docker.docker
 ```zsh
 #/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" # Only needed if not installed via pkg file
 
-brew install mas htop nmap screen watch pwgen tree stress-ng exiftool awscli aws-cdk ansible 
+brew install mas htop nmap screen watch pwgen tree stress-ng exiftool awscli aws-cdk ansible
 brew install --cask libreoffice
 brew install --cask libreoffice-language-pack
 brew install 1password-cli # AFTER 1PASSWORD IS INSTALLED NOT BEFORE !!!
@@ -69,7 +69,7 @@ brew cleanup --prune=all #; go clean -cache # go clean only needed if Go is inst
 brew update && brew upgrade && brew upgrade --cask && brew autoremove && brew cleanup; softwareupdate -l
 ```
 
-## Applictications (Download DMG or PKG file from the Internet)
+## Applications (Download DMG or PKG file from the Internet)
   * 1Password
   * Google Chrome
   * AppCleaner
@@ -80,7 +80,7 @@ brew update && brew upgrade && brew upgrade --cask && brew autoremove && brew cl
   * Brother_PrinterDrivers_MonochromeLaser_1_5_0.dmg
   * Brother_ScannerDrivers_ICA_1_5_0.dmg
 
-## Applictications (via the AppStore)
+## Applications (via the AppStore)
   * 1Password for Safari (Safari Extention for 1Password)
   * Sweet Home 3D
   * WireGuard
@@ -105,7 +105,7 @@ brew update && brew upgrade && brew upgrade --cask && brew autoremove && brew cl
 - Network
   - Firewall: Enable
 - Keyboard -> Keyboard navigation: Enable
-- TrackPad -> More Guestures -> App-Expose -> 3 fingers down
+- TrackPad -> More Gestures -> App-Expose -> 3 fingers down
 
 ## Open Shell scripts by default with Terminal
 - Right click on .sh file
