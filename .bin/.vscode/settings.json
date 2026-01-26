@@ -3,6 +3,7 @@
     "markdown.preview.linkify": true,
     "files.defaultLanguage": "markdown",
     "markdown.suggest.paths.enabled": true,
+    "markdown.updateLinksOnFileMove.enabled": "prompt",
     "markdown.preview.scrollPreviewWithEditor": true,
     "markdown.preview.scrollEditorWithPreview": true,
     "markdown.validate.enabled": true,
