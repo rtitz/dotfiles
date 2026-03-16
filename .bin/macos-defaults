@@ -89,4 +89,28 @@ defaults write com.apple.dock autohide -bool true
 killall Dock
 
 
+# Enable tap to click for this user and for the login screen
+defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+# Enable for the login screen (requires sudo)
+#sudo defaults write /Library/Preferences/com.apple.AppleMultitouchTrackpad Clicking -bool true
+
+
+# Enable three-finger swipe for App Exposé (vertical)
+defaults write com.apple.dock showAppExposeGestureEnabled -bool true
+# Map three-finger vertical swipe to App Exposé
+defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerVertSwipeGesture -int 2
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerVertSwipeGesture -int 2
+
+defaults read com.apple.AppleMultitouchTrackpad TrackpadThreeFingerVertSwipeGesture
+
+
+# PlainText in TextEdit app
+defaults write com.apple.TextEdit RichText -int 0
+defaults write com.apple.TextEdit PlainText -bool true
+# Set default file format to plain text and turn off smart quotes if desired:
+defaults write com.apple.TextEdit PlainText -bool true
+defaults write com.apple.TextEdit PlainTextEncoding -int 4
+defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
+
 
