@@ -12,13 +12,18 @@ This is a tool to backup and restore macOS configuration in Git.
 
 ## Setup
 ```zsh
-/Volumes/external-0/0_Backup/Mac/restore-ssh-keys.sh # SSD external-0 must be connected. This restores SSH-Keys
 sudo xcode-select --install
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-git clone --bare git@github.com:rtitz/dotfiles-rene.git $HOME/.dotfiles
+git clone --bare https://github.com/rtitz/dotfiles.git $HOME/.dotfiles
 dotfiles config --local status.showUntrackedFiles no
 dotfiles config --local push.autoSetupRemote true
 dotfiles checkout  # To overwrite local files with the files in Git use: dotfiles checkout -f
+```
+
+## After GitHub Cli is installed login to GitHub to be able to add new/changed files to repo
+ * See [Brew installation](.bin/docs/install-macos.md#install-brew)
+```zsh
+gh auth login
 ```
 
 ## Add files to repo

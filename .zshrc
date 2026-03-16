@@ -26,7 +26,7 @@ alias ll='ls --color -lG'
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 # 1Password-Cli completion
-eval "$(op completion zsh)"; compdef _op op
+#eval "$(op completion zsh)"; compdef _op op
 
 # PATH
 export PATH=$HOME/Applications/:$PATH

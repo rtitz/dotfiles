@@ -20,7 +20,7 @@ defaults write com.apple.finder ShowPathbar -bool true
 defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
 defaults write com.apple.finder ShowPreviewPane -bool true
 defaults write com.apple.finder ShowSidebar -bool true
-defaults write com.apple.finder ShowStatusBar -bool false
+defaults write com.apple.finder ShowStatusBar -bool true
 defaults write com.apple.finder FXRemoveOldTrashItems -bool true
 defaults write com.apple.finder _FXSortFoldersFirst -bool true
 
@@ -80,21 +80,11 @@ defaults write com.apple.dock wvous-bl-modifier -int 0
 defaults write com.apple.dock wvous-tl-corner -int 0
 defaults write com.apple.dock wvous-tl-modifier -int 0
 
-# Dock
-defaults write com.apple.dock tilesize -int 32 # 47
-defaults write com.apple.dock largesize -int 64 # 109
-defaults write com.apple.dock magnification -bool true
-defaults write com.apple.dock autohide -bool true
-
-killall Dock
-
-
 # Enable tap to click for this user and for the login screen
 defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
 # Enable for the login screen (requires sudo)
 #sudo defaults write /Library/Preferences/com.apple.AppleMultitouchTrackpad Clicking -bool true
-
 
 # Enable three-finger swipe for App Exposé (vertical)
 defaults write com.apple.dock showAppExposeGestureEnabled -bool true
@@ -102,8 +92,8 @@ defaults write com.apple.dock showAppExposeGestureEnabled -bool true
 defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerVertSwipeGesture -int 2
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerVertSwipeGesture -int 2
 
-defaults read com.apple.AppleMultitouchTrackpad TrackpadThreeFingerVertSwipeGesture
-
+# Enable Keyboard navigation
+defaults write NSGlobalDomain AppleKeyboardUIMode -int 2
 
 # PlainText in TextEdit app
 defaults write com.apple.TextEdit RichText -int 0
@@ -113,4 +103,10 @@ defaults write com.apple.TextEdit PlainText -bool true
 defaults write com.apple.TextEdit PlainTextEncoding -int 4
 defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
 
+# Dock
+defaults write com.apple.dock tilesize -int 32 # 47
+defaults write com.apple.dock largesize -int 64 # 109
+defaults write com.apple.dock magnification -bool true
+defaults write com.apple.dock autohide -bool true
 
+killall Dock
