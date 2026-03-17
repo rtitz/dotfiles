@@ -36,3 +36,8 @@ export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/b
 export PATH="$HOME/Applications/go/bin:$PATH"
 export GOPATH="$HOME/go"
 # END ANSIBLE MANAGED BLOCK FOR GO PATH
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/rene/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
