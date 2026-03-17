@@ -2,6 +2,13 @@
 
 **[BACK](../../README.md)**
 
+## Apply macOS-Defaults (Settings)
+```zsh
+.bin/macos-defaults-rene
+# OR
+.bin/macos-defaults-melanie
+```
+
 ## TouchID in Terminal for sudo
 ```zsh
 sed -e 's/^#auth/auth/' /etc/pam.d/sudo_local.template | sudo tee /etc/pam.d/sudo_local
