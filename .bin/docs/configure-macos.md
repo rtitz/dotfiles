@@ -2,58 +2,15 @@
 
 **[BACK](../../README.md)**
 
-## Apply macOS-Defaults (Settings)
+## Configure macOS (System settings)
 ```zsh
-.bin/macos-defaults-rene
-# OR
-.bin/macos-defaults-melanie
+newHostname="Renes-Macbook-Air" .bin/configure-hostname-git-touchid.zsh
+.bin/configure-timemachine.zsh
 ```
 
-## TouchID in Terminal for sudo
+## Apply macOS-Defaults (User Settings)
 ```zsh
-sed -e 's/^#auth/auth/' /etc/pam.d/sudo_local.template | sudo tee /etc/pam.d/sudo_local
-```
-
-## Install Git
-```zsh
-sudo xcode-select --install
-```
-
-## TimeMachine and other system setttings
-```zsh
-sudo systemsetup -getcomputername
-sudo systemsetup -getlocalsubnetname
-sudo systemsetup -setcomputername jupiter
-sudo systemsetup -setlocalsubnetname jupiter
-sudo systemsetup -getcomputername
-sudo systemsetup -getlocalsubnetname
-sudo systemsetup setRemoteLogin on
-
-sudo tmutil setdestination -p /Volumes/TimeMachine
-sudo tmutil destinationinfo
-sudo tmutil addexclusion -v /Volumes/external-0
-sudo tmutil addexclusion -v /Volumes/TimeMachine
-sudo tmutil addexclusion -v /Volumes/ramdisk_1g
-
-# Exclusions Melanie
-sudo tmutil addexclusion -p /Users/melanie/Downloads/
-sudo tmutil addexclusion -p /Users/melanie/Music/
-sudo tmutil addexclusion -p /Users/melanie/Movies/
-sudo tmutil addexclusion -p /Users/melanie/tmp/
-sudo tmutil addexclusion -p /Users/melanie/S3/
-sudo tmutil addexclusion -p /Users/melanie/VirtualBox\ VMs/
-sudo tmutil addexclusion -p /Users/melanie/Library/Containers/com.utmapp.UTM/
-sudo tmutil addexclusion -p /Users/melanie/Library/Containers/com.docker.docker
-
-# Exclusions Rene
-sudo tmutil addexclusion -p /Users/rene/Downloads/
-sudo tmutil addexclusion -p /Users/rene/Music/
-sudo tmutil addexclusion -p /Users/rene/Movies/
-sudo tmutil addexclusion -p /Users/rene/tmp/
-sudo tmutil addexclusion -p /Users/rene/S3/
-sudo tmutil addexclusion -p /Users/rene/VirtualBox\ VMs/
-sudo tmutil addexclusion -p /Users/rene/Library/Containers/com.utmapp.UTM/
-sudo tmutil addexclusion -p /Users/rene/Library/Containers/com.docker.docker
+.bin/macos-defaults-$(whoami)
 ```
 
 ## Install VSCode
