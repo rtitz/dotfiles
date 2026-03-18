@@ -29,7 +29,7 @@ defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 
 # Use column view in all Finder windows by default
 # Four-letter codes for the other view modes: `icnv`, `Nlsv`, `clmv`, `Flwv`
-defaults write com.apple.finder FXPreferredViewStyle -string "clmv"
+defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 
 defaults write com.apple.finder NewWindowTarget -string "PfHo"
 defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/"
