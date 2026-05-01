@@ -108,5 +108,6 @@ defaults write com.apple.dock tilesize -int 32 # 47
 defaults write com.apple.dock largesize -int 64 # 109
 defaults write com.apple.dock magnification -bool true
 defaults write com.apple.dock autohide -bool true
+defaults write com.apple.dock show-recents -bool false
 
 killall Dock
