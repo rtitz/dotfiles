@@ -1,4 +1,4 @@
-# Install macOS
+# Configure macOS
 
 **[BACK](../../README.md)**
 
@@ -44,7 +44,7 @@ brew cleanup --prune=all #; go clean -cache # go clean only needed if Go is inst
 
 ## Upgrade all
 ```zsh
-brew update && brew upgrade && brew upgrade --cask && brew autoremove && brew cleanup --prune=all; softwareupdate -l
+brew update && brew upgrade && brew upgrade --cask && brew autoremove && brew cleanup --prune=all; go clean -cache; softwareupdate -l
 ```
 
 ## Restore SSH-Keys
