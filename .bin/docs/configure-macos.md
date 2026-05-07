@@ -78,6 +78,17 @@ brew update && brew upgrade && brew upgrade --cask && brew autoremove && brew cl
   * [https://go.dev/doc/install](https://go.dev/doc/install)
 
 
+## Install Podman
+```zsh
+brew install podman
+podman machine init --cpus 4 --memory 4096 --disk-size 32
+podman machine start
+
+podman system prune -a --volumes --force
+podman machine stop
+podman machine rm
+```
+
 ## Settings
 - General
   - Share -> File share (Dateifreigabe): Aktiviren
