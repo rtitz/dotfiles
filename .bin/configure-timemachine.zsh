@@ -16,6 +16,7 @@ sudo tmutil addexclusion -p /Users/melanie/S3/
 sudo tmutil addexclusion -p /Users/melanie/VirtualBox\ VMs/
 sudo tmutil addexclusion -p /Users/melanie/Library/Containers/com.utmapp.UTM/
 sudo tmutil addexclusion -p /Users/melanie/Library/Containers/com.docker.docker
+sudo tmutil addexclusion -p /Users/melanie/.ollama
 
 # Exclusions Rene
 sudo tmutil addexclusion -p /Users/rene/Downloads/
@@ -26,5 +27,6 @@ sudo tmutil addexclusion -p /Users/rene/S3/
 sudo tmutil addexclusion -p /Users/rene/VirtualBox\ VMs/
 sudo tmutil addexclusion -p /Users/rene/Library/Containers/com.utmapp.UTM/
 sudo tmutil addexclusion -p /Users/rene/Library/Containers/com.docker.docker
+sudo tmutil addexclusion -p /Users/rene/.ollama
 
 echo "Done."
