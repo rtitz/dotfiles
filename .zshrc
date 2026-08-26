@@ -32,12 +32,12 @@ alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 export PATH=$HOME/Applications/:$PATH
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
-# BEGIN ANSIBLE MANAGED BLOCK FOR GO PATH
-export PATH="$HOME/Applications/go/bin:$PATH"
-export GOPATH="$HOME/go"
-# END ANSIBLE MANAGED BLOCK FOR GO PATH
 # The following lines have been added by Docker Desktop to enable Docker CLI completions.
 fpath=(/Users/rene/.docker/completions $fpath)
 autoload -Uz compinit
 compinit
 # End of Docker CLI completions
+# BEGIN ANSIBLE MANAGED BLOCK FOR GO PATH
+export GOPATH="/Users/rene/go"
+export PATH="/Users/rene/Applications/go/bin:$GOPATH/bin:$PATH"
+# END ANSIBLE MANAGED BLOCK FOR GO PATH
