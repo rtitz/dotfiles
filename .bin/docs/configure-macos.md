@@ -80,7 +80,7 @@ brew update && brew upgrade && brew upgrade --cask && brew autoremove && brew cl
 
 ## Install Podman
 ```zsh
-brew install podman
+brew install podman podman-desktop
 podman machine init --cpus 4 --memory 4096 --disk-size 32
 podman machine start
 
