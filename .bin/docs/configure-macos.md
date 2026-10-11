@@ -60,8 +60,6 @@ brew update && brew upgrade && brew upgrade --cask && brew autoremove && brew cl
   * [Docker](https://www.docker.com/get-started/)
   * [LibreOffice (Only if not installed via brew)](https://www.logitech.com/software/logi-options-plus)
   * [DaVinciResolve](https://www.blackmagicdesign.com/products/davinciresolve)
-  * [Brother_PrinterDrivers_MonochromeLaser_1_5_0.dmg](File: /Volumes/external-0/shared/Apple/Mac/Software)
-  * [Brother_ScannerDrivers_ICA_1_5_0.dmg](File: /Volumes/external-0/shared/Apple/Mac/Software)
 
 ## Applications (via the AppStore)
   * 1Password for Safari (Safari Extention for 1Password)
