@@ -53,7 +53,7 @@ brew update && brew upgrade && brew upgrade --cask && brew autoremove && brew cl
 ```
 
 ## Applications (Download DMG or PKG file from the Internet)
-  * [1Password](https://1password.com/de/downloads/mac)
+  * [1Password](https://1password.com/de/downloads/mac) / Shortcut for QuickAcces: Control + Option + P (See in 1Password Settings > General)
   * [Google Chrome](https://chrome.google.com/)
   * [AppCleaner](https://freemacsoft.net/appcleaner/)
   * [VSCode](https://code.visualstudio.com/sha/download?build=stable&os=darwin-arm64-dmg)
@@ -62,7 +62,6 @@ brew update && brew upgrade && brew upgrade --cask && brew autoremove && brew cl
   * [DaVinciResolve](https://www.blackmagicdesign.com/products/davinciresolve)
 
 ## Applications (via the AppStore)
-  * 1Password for Safari (Safari Extention for 1Password)
   * Sweet Home 3D
   * WireGuard
   * Windows App
