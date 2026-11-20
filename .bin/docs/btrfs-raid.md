@@ -141,3 +141,4 @@ Because the array uses **RAID1** for Data, Metadata, and System chunks, it can s
    sudo btrfs replace status /mnt/btrfs
    ```
    *(Alternatively, if the dead drive is already physically disconnected, you can run `sudo btrfs device add /dev/sdX1 /mnt/btrfs` followed by `sudo btrfs device delete missing /mnt/btrfs`.)*
+
