@@ -17,6 +17,7 @@
     - [B. Permanent Mount via `/etc/fstab`](#b-permanent-mount-via-etcfstab)
   - [4. Health Checks \& Maintenance](#4-health-checks--maintenance)
     - [Check Array Health, Space \& Drive Errors](#check-array-health-space--drive-errors)
+      - [Resetting Error Counters](#resetting-error-counters)
     - [Run a Data Integrity Scrub](#run-a-data-integrity-scrub)
   - [5. Emergency Recovery (If One Drive Dies)](#5-emergency-recovery-if-one-drive-dies)
 
@@ -98,6 +99,14 @@ sudo btrfs filesystem usage /mnt/btrfs
 sudo btrfs device stats /mnt/btrfs
 ```
 *(All error counters should remain `0`. Note: With two mismatched drives, `Free (statfs, df)` shows the true remaining usable RAID1 space.)*
+
+#### Resetting Error Counters
+Btrfs error counters are cumulative and saved permanently on disk until manually cleared. After repairing a temporary glitch (such as an accidental USB disconnect) and completing a full `btrfs scrub` with `Uncorrectable: 0`, reset the counters to `0` so you can spot any new issues:
+```bash
+sudo btrfs device stats -z /mnt/btrfs
+```
+*(Note: The `-z` flag prints the current stats one final time and immediately zeroes all counters.)*
+
 
 ### Run a Data Integrity Scrub
 A scrub reads every block on both drives and automatically repairs silent corruption using checksums and the healthy mirror copy:
