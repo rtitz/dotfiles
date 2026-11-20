@@ -1,10 +1,24 @@
-# Raspberry Pi Btrfs RAID1 Storage Documentation
+# BTRFS RAID Storage Documentation
 
 **Created:** November 20, 2026  
 **Mount Point:** `/mnt/btrfs`  
 **Filesystem Label:** `btrfs-data`  
 **Filesystem UUID:** `86ec6cbb-ba62-4bfb-a1da-11acf7e94e61`  
 **RAID Profile:** `RAID1` (Data, Metadata, and System mirrored across 2 drives; ~1.36 TiB usable capacity)
+
+# Table of Contents
+- [BTRFS RAID Storage Documentation](#btrfs-raid-storage-documentation)
+- [Table of Contents](#table-of-contents)
+  - [1. Physical Drives Inventory](#1-physical-drives-inventory)
+    - [Command to Inspect Physical Disks \& UUIDs](#command-to-inspect-physical-disks--uuids)
+  - [2. Install Required Packages (On a Fresh Linux System)](#2-install-required-packages-on-a-fresh-linux-system)
+  - [3. Mounting the RAID1 Array](#3-mounting-the-raid1-array)
+    - [A. Quick Manual Mount](#a-quick-manual-mount)
+    - [B. Permanent Mount via `/etc/fstab`](#b-permanent-mount-via-etcfstab)
+  - [4. Health Checks \& Maintenance](#4-health-checks--maintenance)
+    - [Check Array Health, Space \& Drive Errors](#check-array-health-space--drive-errors)
+    - [Run a Data Integrity Scrub](#run-a-data-integrity-scrub)
+  - [5. Emergency Recovery (If One Drive Dies)](#5-emergency-recovery-if-one-drive-dies)
 
 ---
 
@@ -27,7 +41,15 @@ lsblk -d -o NAME,MODEL,SERIAL,SIZE,TRAN && echo "---" && blkid -t TYPE=btrfs && 
 
 ---
 
-## 2. Mounting the RAID1 Array (Now or in 5 Years)
+## 2. Install Required Packages (On a Fresh Linux System)
+On Debian, Ubuntu, or Raspberry Pi OS, install `btrfs-progs` (required for multi-device Btrfs scanning and management) and `smartmontools` (for reading drive SMART health):
+```bash
+sudo apt update && sudo apt install -y btrfs-progs smartmontools
+```
+
+---
+
+## 3. Mounting the RAID1 Array 
 
 Btrfs stores RAID metadata directly on each disk's superblock—no `mdadm.conf` or hardware RAID controller is required. Plugging these drives into **any Linux machine with `btrfs-progs` installed** allows immediate mounting.
 
@@ -68,7 +90,7 @@ sudo mount -t btrfs -o noatime,compress=zstd:3,autodefrag -U 86ec6cbb-ba62-4bfb-
 
 ---
 
-## 3. Health Checks & Maintenance
+## 4. Health Checks & Maintenance
 
 ### Check Array Health, Space & Drive Errors
 ```bash
@@ -86,7 +108,7 @@ sudo btrfs scrub status /mnt/btrfs
 
 ---
 
-## 4. Emergency Recovery (If One Drive Dies)
+## 5. Emergency Recovery (If One Drive Dies)
 
 Because the array uses **RAID1** for Data, Metadata, and System chunks, it can survive the complete failure of either drive:
 
