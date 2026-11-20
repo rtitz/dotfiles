@@ -11,6 +11,7 @@ This is a tool to backup and restore macOS configuration in Git.
   - [Pull current configuration on other machines](#pull-current-configuration-on-other-machines)
   - [Configure macOS](#configure-macos)
   - [Documentations](#documentations)
+  - [Archival BTRFS RAID disks](#archival-btrfs-raid-disks)
 
 ## Setup
 ```zsh
@@ -55,3 +56,6 @@ dotfiles pull
  * [Monitor DDC/CI issues](.bin/docs/monitor-issues.md)
  * [Git-Repos](.bin/docs/git-repos.md)
  * [Install macOS](.bin/docs/configure-macos.md)
+
+## Archival BTRFS RAID disks
+ * [BTRFS-RAID](.bin/docs/btrfs-raid.md)
