@@ -1,7 +1,6 @@
 # Raspberry Pi Btrfs RAID1 Storage Documentation
 
 **Created:** November 20, 2026  
-**Host:** `pi-bffd072a8a007146` (Kernel `6.18.50+rpt-rpi-2712`)  
 **Mount Point:** `/mnt/btrfs`  
 **Filesystem Label:** `btrfs-data`  
 **Filesystem UUID:** `86ec6cbb-ba62-4bfb-a1da-11acf7e94e61`  
