@@ -1,6 +1,6 @@
 # BTRFS RAID Storage Documentation
 
-**Created:** November 20, 2026  
+**Created:** November 18, 2026  
 **Mount Point:** `/mnt/btrfs`  
 **Filesystem Label:** `btrfs-data`  
 **Filesystem UUID:** `86ec6cbb-ba62-4bfb-a1da-11acf7e94e61`  
@@ -9,21 +9,24 @@
 # Table of Contents
 - [BTRFS RAID Storage Documentation](#btrfs-raid-storage-documentation)
 - [Table of Contents](#table-of-contents)
-  - [1. Physical Drives Inventory](#1-physical-drives-inventory)
+  - [Physical Drives Inventory](#physical-drives-inventory)
     - [Command to Inspect Physical Disks \& UUIDs](#command-to-inspect-physical-disks--uuids)
-  - [2. Install Required Packages (On a Fresh Linux System)](#2-install-required-packages-on-a-fresh-linux-system)
-  - [3. Mounting the RAID1 Array](#3-mounting-the-raid1-array)
+  - [Filesystem Creation Baseline \& Future Feature Upgrades](#filesystem-creation-baseline--future-feature-upgrades)
+    - [How to Check \& Upgrade Features in the Future](#how-to-check--upgrade-features-in-the-future)
+    - [Optional Future Upgrade: `block-group-tree` (Faster Mounts on Multi-TB Arrays)](#optional-future-upgrade-block-group-tree-faster-mounts-on-multi-tb-arrays)
+  - [Install Required Packages (On a Fresh Linux System)](#install-required-packages-on-a-fresh-linux-system)
+  - [Mounting the RAID1 Array](#mounting-the-raid1-array)
     - [A. Quick Manual Mount](#a-quick-manual-mount)
     - [B. Permanent Mount via `/etc/fstab`](#b-permanent-mount-via-etcfstab)
-  - [4. Health Checks \& Maintenance](#4-health-checks--maintenance)
+  - [Health Checks \& Maintenance](#health-checks--maintenance)
     - [Check Array Health, Space \& Drive Errors](#check-array-health-space--drive-errors)
       - [Resetting Error Counters](#resetting-error-counters)
     - [Run a Data Integrity Scrub](#run-a-data-integrity-scrub)
-  - [5. Emergency Recovery (If One Drive Dies)](#5-emergency-recovery-if-one-drive-dies)
+  - [Emergency Recovery (If One Drive Dies)](#emergency-recovery-if-one-drive-dies)
 
 ---
 
-## 1. Physical Drives Inventory
+## Physical Drives Inventory
 
 > **Note:** Device letters (`/dev/sdb`, `/dev/sdc`) can swap between reboots. Always identify physical drives using the **Model**, **Serial Number**, **PARTUUID**, or **UUID_SUB** listed below.
 
@@ -42,7 +45,52 @@ lsblk -d -o NAME,MODEL,SERIAL,SIZE,TRAN && echo "---" && blkid -t TYPE=btrfs && 
 
 ---
 
-## 2. Install Required Packages (On a Fresh Linux System)
+## Filesystem Creation Baseline & Future Feature Upgrades
+
+Recording the exact software versions and on-disk superblock flags used when creating this array makes it easy in 5+ years to compare against newer `mkfs.btrfs` defaults and safely enable modern features via `btrfstune`.
+
+| Parameter | Value at Creation | Notes / Meaning |
+| :--- | :--- | :--- |
+| **Linux Kernel** | `6.18.50+rpt-rpi-2712` (ARM64) | Raspberry Pi OS / Debian |
+| **`btrfs-progs` Version** | `v6.14` | Built with `+LZO +ZSTD +FSVERITY +ZONED` |
+| **Checksum Algorithm (`csum_type`)** | `0 (crc32c)` | Hardware-accelerated default checksums |
+| **Read-Only Compat Flags (`compat_ro_flags`)** | `0x3` | `FREE_SPACE_TREE` + `FREE_SPACE_TREE_VALID` (`space_cache=v2`) |
+| **Incompat Flags (`incompat_flags`)** | `0x351` | `MIXED_BACKREF`, `BIG_METADATA`, `EXTENDED_IREF`, `SKINNY_METADATA`, `NO_HOLES` |
+| **Active Mount Compression** | `zstd:3` + `autodefrag` | Transparent compression + background defrag for HDDs |
+| **Drive Firmware Tweaks** | `idle3ctl -s 138` (5 min) | Applied permanently to both WD Green drives (`WD25EZRX` & `WD15EADS`) to prevent 8s head-parking wear. Only needed for legacy WD Green desktop HDDs (produced up to ~2015–2016); not needed for WD Red or modern NAS drives. |
+
+### How to Check & Upgrade Features in the Future
+1. **Inspect current on-disk superblock flags:**
+   ```bash
+   btrfs --version && sudo btrfs inspect-internal dump-super /dev/sdX1 | grep -E "csum_type|incompat_flags|compat_ro_flags"
+   ```
+2. **Compare against current `mkfs.btrfs` defaults** on a newer Linux system:
+   ```bash
+   mkfs.btrfs -O list-all
+   ```
+3. **Enable newer on-disk features without reformatting** (must be run while `/mnt/btrfs` is **unmounted**, e.g., enabling `block-group-tree` for faster mount times on multi-terabyte arrays):
+   ```bash
+   sudo umount /mnt/btrfs
+   sudo btrfstune --convert-to-block-group-tree /dev/sdX1
+   sudo mount -a
+   ```
+   *(Caution: Only enable new on-disk flags if all Linux machines you plan to mount these disks on run a kernel new enough to support those flags.)*
+
+### Optional Future Upgrade: `block-group-tree` (Faster Mounts on Multi-TB Arrays)
+* **Current Status:** Not enabled (keeps array compatible with Linux kernels `5.15+`).
+* **When to Enable:** Only needed if the array grows to several terabytes and mount times take noticeably longer than a couple of seconds. *(Requires Linux kernel `6.1+` on any machine mounting these drives).*
+* **How to Enable (Offline):**
+  1. Ensure **all** member disks of the RAID1 array are connected.
+  2. Unmount the filesystem and run `btrfstune` against **any single** member partition (Btrfs automatically updates the mirrored metadata across all disks in the pool):
+     ```bash
+     sudo umount /mnt/btrfs
+     sudo btrfstune --convert-to-block-group-tree /dev/sdX1
+     sudo mount -a
+     ```
+
+---
+
+## Install Required Packages (On a Fresh Linux System)
 On Debian, Ubuntu, or Raspberry Pi OS, install `btrfs-progs` (required for multi-device Btrfs scanning and management) and `smartmontools` (for reading drive SMART health):
 ```bash
 sudo apt update && sudo apt install -y btrfs-progs smartmontools
@@ -50,7 +98,7 @@ sudo apt update && sudo apt install -y btrfs-progs smartmontools
 
 ---
 
-## 3. Mounting the RAID1 Array 
+## Mounting the RAID1 Array 
 
 Btrfs stores RAID metadata directly on each disk's superblock—no `mdadm.conf` or hardware RAID controller is required. Plugging these drives into **any Linux machine with `btrfs-progs` installed** allows immediate mounting.
 
@@ -91,7 +139,7 @@ sudo mount -t btrfs -o noatime,compress=zstd:3,autodefrag -U 86ec6cbb-ba62-4bfb-
 
 ---
 
-## 4. Health Checks & Maintenance
+## Health Checks & Maintenance
 
 ### Check Array Health, Space & Drive Errors
 ```bash
@@ -117,7 +165,7 @@ sudo btrfs scrub status /mnt/btrfs
 
 ---
 
-## 5. Emergency Recovery (If One Drive Dies)
+## Emergency Recovery (If One Drive Dies)
 
 Because the array uses **RAID1** for Data, Metadata, and System chunks, it can survive the complete failure of either drive:
 
