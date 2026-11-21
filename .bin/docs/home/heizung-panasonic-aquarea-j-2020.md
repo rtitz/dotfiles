@@ -71,3 +71,21 @@
 | **Sa – So** |   1    | `10:00` | `EIN`  | Kühlen + WW | `18 °C` |  `43 °C`   |
 | **Sa – So** |   2    | `14:30` | `EIN`  | Kühlen + WW | `18 °C` |  `48 °C`   |
 | **Sa – So** |   3    | `18:00` | `EIN`  |   Nur WW    |  `Aus`  |  `43 °C`   |
+
+
+## Urlaubseinstellungen nach Monat (10–14 Tage Abwesenheit)
+
+| Monat         |     Heizbetrieb      |  Heizkurven-Verschiebung  | Kühlbetrieb | Warmwasser | Begründung / Hinweis                                                                                                   |
+| :------------ | :------------------: | :-----------------------: | :---------: | :--------: | :--------------------------------------------------------------------------------------------------------------------- |
+| **Januar**    |        `EIN`         |        **`-3 °C`**        |    `AUS`    |   `AUS`    | Frostschutz & Auskühlschutz; Ende 18 Stunden vor Rückkehr setzen                                                       |
+| **Februar**   |        `EIN`         |        **`-3 °C`**        |    `AUS`    |   `AUS`    | Frostschutz & Auskühlschutz; Ende 18 Stunden vor Rückkehr setzen                                                       |
+| **März**      |        `EIN`         |  **`-2 °C` bis `-3 °C`**  |    `AUS`    |   `AUS`    | Nächte oft noch frostig, tagsüber solare Gewinne; Ende 18 Stunden vor Rückkehr setzen                                  |
+| **April**     |        `AUS`         |           `---`           |    `AUS`    |   `AUS`    | In einem 2020er Neubau meist schon komplett ohne Heizung möglich; Ende 6 Stunden vor Rückkehr setzen                   |
+| **Mai**       |        `AUS`         |           `---`           |    `AUS`    |   `AUS`    | Nur Frostschutz aktiv; Speicher heizt am Rückreisetag in ca. 45–60 Min. auf; Ende 6 Stunden vor Rückkehr setzen        |
+| **Juni**      |        `AUS`         |           `---`           |    `AUS`    |   `AUS`    | Keine aktive Kühlung bei Abwesenheit nötig (spart 100 % Kühlstrom); Ende 6 Stunden vor Rückkehr setzen                 |
+| **Juli**      |        `AUS`         |           `---`           |    `AUS`    |   `AUS`    | Keine aktive Kühlung bei Abwesenheit nötig (spart 100 % Kühlstrom); Ende 6 Stunden vor Rückkehr setzen                 |
+| **August**    |        `AUS`         |           `---`           |    `AUS`    |   `AUS`    | Keine aktive Kühlung bei Abwesenheit nötig (spart 100 % Kühlstrom); Ende 6 Stunden vor Rückkehr setzen                 |
+| **September** |        `AUS`         |           `---`           |    `AUS`    |   `AUS`    | Hohe gespeicherte Restwärme im gedämmten Haus verhindert Auskühlen; Ende 6 Stunden vor Rückkehr setzen                 |
+| **Oktober**   | `AUS` *(oder `EIN`)* | **`-3 °C`** *(falls Ein)* |    `AUS`    |   `AUS`    | Anfang Oktober reicht `AUS`, ab Ende Oktober sanft mit `-3 °C` durchlaufen lassen; Ende 18 Stunden vor Rückkehr setzen |
+| **November**  |        `EIN`         |        **`-3 °C`**        |    `AUS`    |   `AUS`    | Verhindert starkes Auskühlen des Estrichs; Ende 18 Stunden vor Rückkehr setzen                                         |
+| **Dezember**  |        `EIN`         |        **`-3 °C`**        |    `AUS`    |   `AUS`    | Frostschutz & Auskühlschutz; Ende 18 Stunden vor Rückkehr setzen                                                       |
