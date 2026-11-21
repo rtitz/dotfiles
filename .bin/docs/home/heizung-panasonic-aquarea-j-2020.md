@@ -1,4 +1,4 @@
-# Panasonic Aquarea (Generation J)
+# Panasonic Aquarea (Generation J, Innen- und Außengerät, 3 kW Heizstab)
 
 **Gebäude:** Baujahr 2020, Fußbodenheizung (+ große Heizkörper im gedämmten Keller), keine Taupunktsensoren
 

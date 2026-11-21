@@ -1,6 +1,6 @@
 # Jährliche Wartungsanleitung & Wartungsprotokoll – Panasonic Aquarea (Generation J)
 
-**Anlage:** Panasonic Aquarea Monoblock (Generation J, 3 kW Heizstab)
+**Anlage:** Panasonic Aquarea Split-Anlage (Generation J, Innen- und Außengerät, 3 kW Heizstab)
 **Wartungsintervall:** 1x jährlich (idealerweise im Herbst vor Beginn der Heizperiode)
 
 ---
@@ -12,7 +12,7 @@
 ### 1. Vorbereitung
 - [ ] Wärmepumpe an der Fernbedienung über die **Ein-/Aus-Taste** ausschalten (Standby, grüne LED erlischt).
 - [ ] Sicherungen im Hausverteiler **eingeschaltet lassen** (für den FI-Test erforderlich).
-- [ ] Rechte Frontabdeckung des Außengeräts abschrauben und vorsichtig abnehmen.
+- [ ] Abdeckung (Front) am Innengerät abschrauben (2 Schrauben unten)
 
 ### 2. Elektrische Prüfung (FI-Schutzschalter / RCCB)
 - [ ] **Zuerst Power Supply 2 (3-kW-Heizstab):** Kleine **„T“ / „TEST“-Taste** drücken → Kippschalter muss sofort auf `OFF` springen.
