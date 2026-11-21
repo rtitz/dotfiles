@@ -12,6 +12,7 @@ This is a tool to backup and restore macOS configuration in Git.
   - [Configure macOS](#configure-macos)
   - [Documentations](#documentations)
   - [Archival BTRFS RAID disks](#archival-btrfs-raid-disks)
+- [HOME](#home)
 
 ## Setup
 ```zsh
@@ -59,3 +60,9 @@ dotfiles pull
 
 ## Archival BTRFS RAID disks
  * [BTRFS-RAID](.bin/docs/btrfs-raid.md)
+
+---
+
+# HOME
+ * [Heizung: Panasonic Aquarea Generation J - 2020](.bin/docs/home/heizung-panasonic-aquarea-j-2020.md)
+ * [Heizung: Panasonic Aquarea Generation J - 2020 - Wartung](.bin/docs/home/heizung-panaconic-aquarea-j-2020-wartung.md)
